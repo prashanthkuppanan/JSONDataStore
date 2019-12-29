@@ -32,8 +32,13 @@ public class JsonDataStore extends DataStore{
 	private static final long MAX_JSON_LIMIT = 16000; // 16 KB
 	private static final long MAX_KEY_LEN = 32; // 32 chars
 
-	public JsonDataStore() throws IOException {
-		Utils.cleanDB();
+	static {
+		try {
+			Utils.cleanDB();
+			Utils.cleanTemp();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void create(String key, String value, int timeoutSeconds) throws DataStoreException, IOException {

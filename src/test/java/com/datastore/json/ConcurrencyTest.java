@@ -9,6 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -48,6 +49,12 @@ public class ConcurrencyTest {
 		while (!executor.isTerminated()) {}
 		testAtomically.unlock();
 		assertEquals(list.size(), 10);
+	}
+	
+	@AfterClass
+	public static void tearDownClass() throws IOException {
+		Utils.cleanDB();
+		Utils.cleanTemp();
 	}
 }
 

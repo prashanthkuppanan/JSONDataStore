@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -72,5 +73,11 @@ public class AllConstraintTester {
 		} catch (DataStoreException | IOException e) {
 			assertEquals(e.getMessage(), "Key "+ key +" is not present");
 		}
+	}
+	
+	@AfterClass
+	public static void tearDownClass() throws IOException {
+		Utils.cleanDB();
+		Utils.cleanTemp();
 	}
 }

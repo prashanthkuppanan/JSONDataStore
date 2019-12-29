@@ -6,7 +6,7 @@
 	2. The key will have default 5 minutes for key expiration time. 
 	   You cannot access the key after 5 minutes, along you can change while configuring the data store.
 	3. The file system path is relative to this project. *DB* folder for storing the key-value pairs, *temp* folder 
-		will be used to store the file temporarily to check the space in the Datasource. 
+	    will be used to store the file temporarily to check the space in the Datasource. These folders will be created while 		    running the application.  
 	4. The key must be string with length not more than 32 length.
 	5. The value must be JSON and should not exceed 16 KB size.
 	6. The following messages will reported to the end user if any operations leads to error:
